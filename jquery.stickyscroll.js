@@ -66,7 +66,7 @@
               el.addClass("fixed-top").removeClass("fixed");
             }
             if (scrollTop >= settings.topBoundary) {
-              el.addClass("fixed").removeClass("fixed-top, fixed-bottom");
+              el.addClass("fixed").removeClass("fixed-top fixed-bottom");
             }
             if (scrollTop >= (settings.bottomBoundary - height)) {
               el.addClass("fixed-bottom").removeClass("fixed");
