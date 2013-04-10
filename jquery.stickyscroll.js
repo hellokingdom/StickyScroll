@@ -24,15 +24,15 @@
           container : $('body'),
           topBoundary : null,
           bottomBoundary : null,
-          topOffset: 20
+          offset: 20
         }, options);
 
         function bottomBoundary() {
-          return settings.container.innerHeight() + settings.container.offset().top - settings.topOffset
+          return settings.container.innerHeight() + settings.container.offset().top - settings.offset
         }
 
         function topBoundary() {
-          return settings.container.offset().top - settings.topOffset;
+          return settings.container.offset().top - settings.offset;
         }
 
         function elHeight(el) {
