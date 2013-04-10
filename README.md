@@ -2,7 +2,7 @@
 
 Make elements stick to browser window as you scroll
 
-## WARNING
+## UPDATE
 
 <del>Stickyscroll performs *very* badly in the current versions of Chrome and Firefox
 at the time of this writing, and I'm not sure I'm capable of fixing it without
@@ -13,34 +13,31 @@ see if you have any ideas to make it work again. It looks to me like the
 `window.onscroll` function just doesn't fire enough to make this a viable option
 anymore.</del>
 
-Fork using CSS classes instead of positioning elements.
+Fork using CSS classes instead of positioning elements, should fix issues on browsers that support position fixed.
 
 ##Usage:
-- `$('selector').stickyScroll({ container: $(container-element), offset: 20 })`
+- `$('selector').stickyScroll({ container: .container, offset: 20 })`
 
-  This is "auto" mode. The sticky element will never cross the boundaries
-  of the specified container.
 
-- `$('selector').stickyScroll()`
-<del>
-  This is also "auto" mode, but the container will be the `body` tag.
+Adds the following classes to the selected element:
 
-- `$('selector').stickyScroll({ topBoundary: '100px', bottomBoundary: '200px' })`
+`.fixed-top`
+`.fixed`
+`.fixed-bottom`
 
-  This is "manual" mode. The boundaries are relative to the top and bottom of
-  the document, and the sticky element will never cross those boundaries. So,
-  in the example given, the top of the sticky element(s) will never be above
-  100 pixels from the top of the document and the bottom of the sticky
-  element(s) will never be below 200 pixels from the bottom of the document.
+Example CSS:
 
-- `$('selector').stickyScroll('reset')`
-
-  Use this command to rid an element of any stickiness
-
-##Notes:
-- Requires jQuery 1.4+ or include the offset.js file from newer jQuery source (http://github.com/jquery/jquery/blob/master/src/offset.js)
-- <del>Disclaimer: Requires position: fixed support, so no IE6</del> No longer uses fixed positioning, only mimics it. Much better support now for mobile/tablet.
-- Possible enhancements to come: 
-	- <del>Fluid/elastic layout support</del> Now supports fluid layouts! (best in "auto" mode)
-	- Support for callbacks when a boundary is reached
-</del>
+      .fixed {
+	      position:fixed;
+	      top:20px; // Offset height
+		  width:100%;
+  	  }
+  	  .fixed-bottom {
+	      position:absolute;
+		  top:auto;
+	      bottom:0;
+		  width:100%;
+  	  }
+	  .container {
+		  position:relative;	  
+	  }
